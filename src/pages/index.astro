@@ -1,17 +1,32 @@
 ---
+//@ts-nocheck
+import Layout from "../layouts/Layout.astro";
+import Kunstner from "../components/Kunstnere.astro";
+
+const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY; 
+
+
+const data = await fetch(url, {
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": apiKey,
+    "Authorization": `Bearer ${apiKey}`
+  }
+}).then(res => res.json());
+
+console.log(data);
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+
+
+	{data.map((kunstner) => <Kunstner kunstner={kunstner} />)}	
+
+
+</Layout>
+
+
+
+</script>

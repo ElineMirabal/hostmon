@@ -1,4 +1,21 @@
 ---
+//@ts-nocheck
+import Layout from "../layouts/Layout.astro";
+import Kunstner from "../components/Kunstnere.astro";
+
+const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY; 
+
+
+const data = await fetch(url, {
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": apiKey,
+    "Authorization": `Bearer ${apiKey}`
+  }
+}).then(res => res.json());
+
+console.log(data);
 
 ---
 
@@ -19,3 +36,14 @@
 <body
 
 
+<Layout>
+
+
+	{data.map((kunstner) => <Kunstner kunstner={kunstner} />)}	
+
+
+</Layout>
+
+
+
+</script>

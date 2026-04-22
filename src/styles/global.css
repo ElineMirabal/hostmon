@@ -1,0 +1,52 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+body {
+font-family: "helvetica", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  width: 900px;
+}
+  */
+
+h1 {
+  font-family: "unbounded", sans-serif;
+  font-size: 150px;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "unbounded", sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+}
+
+/* (versaler) */
+h3 {
+  font-family: "helvetica", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+p {
+  font-family: "helvetica", sans-serif;
+  font-size: 24px;
+}

@@ -1,0 +1,54 @@
+---
+// Hent props
+const { href, text } = Astro.props;
+---
+
+
+<a href={href} class="cta-laes-mere">
+  {text}
+</a>
+<a href={href} class="cta-billetterbilletter">
+  {text}
+</a>
+<a href={href} class="cta-kob-billetter">
+  {text}
+</a>
+<a href={href} class="cta-send">
+  {text}
+</a>
+
+
+<style>
+.cta{
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.cta-laes-mere .cta-send {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0a0a0a;
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.cta-billetterbilletter .cta-kob-billetter{
+ color: #261321;
+font-size: 18px;
+font-weight: 600;
+border: white solid 2px;
+border-radius: 50%;
+}
+
+.cta-billetterbilletter .cta-kob-billetter:hover .cta-laes-mere .cta-send {
+  background-color: #9B8EFF;
+}
+
+</style>
+
+  
+   

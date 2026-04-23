@@ -50,3 +50,14 @@ p {
   font-family: "helvetica", sans-serif;
   font-size: 24px;
 }
+
+/* det er er CTA knapper, som skal indsættes i Jeres Page: index.astro og single.view*/
+/* 
+
+<Cta 
+  text="Læs mere"
+  href="/om-os"
+  type="laes-mere"
+/>
+
+*/

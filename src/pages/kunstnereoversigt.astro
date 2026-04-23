@@ -105,11 +105,14 @@ console.log(data);
            <h3>250,00 KR.</h3>
          </div> 
 
-         <a href="/kunstnereoversigt#billetter" class="cta-kob-billetter">
-  Køb Billetter
-</a>
+<Cta 
+  text="Køb Billetter"
+  href="/kunstnereoversigt#billetter"
+  type="kob-billetter"
+/>
+
 </div>
-</article>
+</div>
 
   </Layout>
 
@@ -144,10 +147,10 @@ margin: 40px 40px;
 }
 
 .kunstnerne, .aktiviteter{
-   display: grid;
+  display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-padding: 2rem;
+  padding: 2rem;
   justify-content: center;
   justify-items: center;
 

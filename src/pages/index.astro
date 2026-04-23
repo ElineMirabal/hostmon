@@ -6,6 +6,7 @@ import Kunstner from "../components/Kunstnere.astro";
 const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?select=*`;
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY; 
 
+console.log("TEST", import.meta.env.SUPABASE_URL);
 
 const data = await fetch(url, {
   headers: {

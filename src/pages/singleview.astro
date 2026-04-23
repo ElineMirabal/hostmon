@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SingleviewCard from "../components/SingleviewCard.astro";
+---
+
+<Layout title="Detalje">
+  <h1>Single view</h1>
+  <SingleviewCard
+    h2="H2 Title"
+    h3="H3 Title"
+    tekst="This is the main text content for the single view."
+    ctaText="Learn More"
+    ctaLink="/more-info"
+    billede="/path/to/image.jpg"
+  />
+
+  <img src="/image1.jpg" alt="Billede 1" />
+<img src="/image2.jpg" alt="Billede 2" />
+</Layout>

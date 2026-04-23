@@ -2,6 +2,8 @@
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Kunstner from "../components/Kunstnere.astro";
+import Vendertilbagecard from "../components/Vendertilbagecard.astro";
+import Informationscardsindex from "../components/informationscardsindex.astro";
 
 const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?select=*`;
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY; 
@@ -20,11 +22,12 @@ console.log(data);
 ---
 <Layout>
 
-
 	{data.map((kunstner) => <Kunstner kunstner={kunstner} />)}	
 
-
+<Vendertilbagecard />
+<Informationscardsindex />
 </Layout>
+
 
 
 

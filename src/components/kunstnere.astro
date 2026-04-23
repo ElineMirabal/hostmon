@@ -15,7 +15,7 @@ const { kunstner } = Astro.props;
   <div class="overlay">
     <h2>{kunstner.navn}</h2>
     <p>{kunstner.tid}</p>
-    <a href={`/singlekunstner/${kunstner.id}`} class="card-link"></a>
+    <a href={`/singleview/${kunstner.id}`}>Se kunstner</a>
   </div>
 </article>
 

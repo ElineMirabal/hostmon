@@ -1,0 +1,79 @@
+---
+//@ts-nocheck
+export const prerender = false;
+
+import Layout from "../../layouts/Layout.astro";
+import SingleviewCard from "../../components/SingleviewCard.astro";
+
+const { id } = Astro.params;
+
+const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?id=eq.${id}&select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+
+const data = await fetch(url, {
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": apiKey,
+    "Authorization": `Bearer ${apiKey}`
+  }
+}).then(res => res.json());
+
+const kunstner = data?.[0];
+---
+
+<Layout title={kunstner?.navn ?? "Kunstner"}>
+  {kunstner ? (
+    <>
+  <SingleviewCard
+     h2={kunstner.navn}
+        h3={kunstner.tid}
+        billede={kunstner.billede}
+          tekst={kunstner.beskrivelse}
+        />
+        <div class="buttons">
+    <a href="#">Billetter</a>
+    <a href="#">Billet</a>
+  </div> 
+  <img src="/public/billeder/youtubeskærm.webp" alt="Billede 2" />
+ <img class="singleview-image2" src="/public/billeder/snuggle spotify.webp" alt="Billede 1" />
+    </>
+  ) : (
+    <p>Kunstner ikke fundet</p>
+  )}
+</Layout>
+
+<style>
+  img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 10px;
+  }
+  .singleview-image2 {
+    margin-top: 0;
+    max-width: 400px;
+  }
+
+
+a:-webkit-any-link {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons a {
+  border: 1px solid white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.buttons a:hover {
+  background: rgb(255, 255, 255);
+  color: black;
+}
+</style>

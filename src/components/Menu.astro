@@ -3,7 +3,7 @@
 
 <nav class="nav">
      <div class="logo">
-            <a href="index.astro">
+            <a href="/">
                 <img src="/billeder/logo.svg" alt="Logo">
             </a>
         </div>
@@ -11,8 +11,8 @@
    <div class="burger">≡</div>
 
   <ul class="menu">
-    <li><a href="/kunstneroversigt">Billetter</a></li>
-    <li><a href="/kunstneroversigt">Program</a></li>
+    <li><a href="/kunstnereoversigt">Billetter</a></li>
+    <li><a href="/kunstnereoversigt">Program</a></li>
     <li><a href="/">Om os</a></li>
   </ul>
 </nav>
@@ -21,11 +21,12 @@
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.querySelector(".burger");
-    const menu = document.querySelector(".menu");
+    const burger = document.querySelector(".nav .burger");
+    const menu = document.querySelector(".nav .menu");
 
     if (burger && menu) {
       burger.addEventListener("click", () => {
+        console.log("klik virker");
         menu.classList.toggle("open");
       });
     }
@@ -36,14 +37,13 @@
 
 <style>
   .nav {
-    position: absolute;
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    z-index: 999;
+    z-index: 90;
   }
 
   .logo {
@@ -54,7 +54,7 @@
     font-size: 1.8rem;
     cursor: pointer;
     position: relative;
-    z-index: 1000;
+    z-index: 90;
       background: transparent;
     border: none;
     color: inherit;
@@ -74,11 +74,13 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     background: black;
+    z-index: 90;
   }
 
   .menu li {
     padding: 1rem;
     list-style: none;
+    justify-content: center;
   }
 
   .menu a {

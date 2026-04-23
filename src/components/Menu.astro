@@ -2,14 +2,18 @@
 --- 
 
 <nav class="nav">
-  <div class="logo"><img src="hostmonlogo.png" alt=""></div>
+     <div class="logo">
+            <a href="index.astro">
+                <img src="billeder/logo.svg" alt="Logo">
+            </a>
+        </div>
   
    <div class="burger">≡</div>
 
   <ul class="menu">
-    <li><a href="#">Billetter</a></li>
-    <li><a href="#">Program</a></li>
-    <li><a href="#">Om os</a></li>
+    <li><a href="kunstneroversigt.astro">Billetter</a></li>
+    <li><a href="kunstneroversigt.astro">Program</a></li>
+    <li><a href="index.astro">Om os</a></li>
   </ul>
 </nav>
 
@@ -28,6 +32,8 @@
   });
 </script>
 
+
+
 <style>
   .nav {
     position: absolute;
@@ -36,8 +42,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
-    z-index: 10;
+    color: white;
+    z-index: 999;
   }
 
   .logo {
@@ -47,7 +53,15 @@
   .burger {
     font-size: 1.8rem;
     cursor: pointer;
+    position: relative;
+    z-index: 1000;
+      background: transparent;
+    border: none;
+    color: inherit;
+    pointer-events: auto;
   }
+
+  
 
   /*MOBIL*/
   .menu {
@@ -59,6 +73,7 @@
     flex-direction: column;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    background: black;
   }
 
   .menu li {
@@ -67,12 +82,16 @@
   }
 
   .menu a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
 
   .menu.open {
     display: flex;
+  }
+
+  .logo img{
+    width: 50%;
   }
 
   /*DESKTOP*/

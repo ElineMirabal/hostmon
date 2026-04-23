@@ -1,13 +1,201 @@
 ---
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
+import Kunstner from "../components/Kunstnere.astro";
+import Cta from "../components/Cta.astro";
+import styles from "../styles/global.css";
+
+const url =`${import.meta.env.SUPABASE_URL}/rest/v1/kunstnere?select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY; 
+
+
+const data = await fetch(url, {
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": apiKey,
+    "Authorization": `Bearer ${apiKey}`
+  }
+}).then(res => res.json());
+
+console.log(data);
+
 ---
 
-<layout title="kunstnerprogram">
-    <h2>Miaw</h2>
- <p>Dette er indholdet på forsiden.</p>
-</layout>
+  <Layout>
+    <div class="program">
+    <h2>Program</h2>
+ <p>Se hele festivalsprogrammet</p>
 
-<main>
-    
-</main>
+
+<button id="openModal">Her</button>
+    </div>
+
+<dialog id="programModal">
+  <h2>Program 2026</h2>
+  <p>Her er programmet</p>
+  <button id="closeModal">Luk</button>
+</dialog>
+
+<div class="programbaggrund">
+ <div class="kunstnerne">
+        <div>
+ <h3>Fredag</h3>
+  <h3>28. August</h3>
+  </div>
+  <div>
+   <h3>Lørdag</h3>
+  <h3>29. August</h3>
+  </div>
+ {data.map((kunstner) => <Kunstner kunstner={kunstner} />)}	
+ </div>
+</div>
+
+  <h2>Aktiviteter</h2>
+
+ <div class="programbaggrund">
+    <div class="aktiviteter">
+    <div>
+  <h3>Fredag</h3>
+  <h3>28. August</h3>
+</div>
+<div>
+   <h3>Lørdag</h3>
+  <h3>29. August</h3>
+  </div>
+</div>
+
+  <div class="billetter" id="billetter">
+      <h2>Billetter</h2>
+      <h3>Fredag + Lørdag 28. - 29.  August</h3>
+
+      <div class="billet-info">
+
+<div class="partout">      
+    <h3>Partout</h3>
+        <p>Giver adgang til den fulde festival inkl. 
+            <li>Camping</li>
+            <li>Èt fælles måltid lørdag aften.</li>
+        <h3>1.150,00 KR.</h3>
+        </div>  
+<div class="borne">   
+        <h3>Børnebillet (3-12ÅR)</h3>
+        <p>Denne billet giver adgang til fuld festival inkl. 
+        <ul>
+            <li>Camping</li>
+            <li>Èt fælles måltid lørdag aften.</li>
+        </ul>
+        <h3>550,00 KR..</h3>
+ </div> 
+<div class="camping">   
+        <h3>Camping</h3>
+        <p>Campingvogn, Autocamper, Camp-let</p>
+        <p>Giver adgang til festivalpladsen med </p>
+        <ul>
+        <li>1 stk. campingvogn/autocamper/camp-let el. lign. Strøm tilbydes ikke.</li>
+        </ul>
+        <h3>200,00 KR.</h3>
+         </div> 
+
+        <div class="bus">   
+        <h3>Bus</h3>
+        <p>Fredag kl. 12.00 Hovedbanegården</p>
+        <p>Busbillet for voksen eller barn
+            <br>Hovedbanegården - Høst Møn tur/retur.
+            <br>Afgang fredag 28.aug fra DGI Byen.</p>
+           <h3>250,00 KR.</h3>
+         </div> 
+
+         <a href="/kunstnereoversigt#billetter" class="cta-kob-billetter">
+  Køb Billetter
+</a>
+</div>
+</article>
+
+  </Layout>
+
+<style>
+body{
+        background-color: burlywood;
+   }
+ 
+.program{
+    text-align: center;
+     gap: 10px;   
+    }
+
+#openModal{
+display: inline-block;
+  padding: 5px 30px;
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 50px;
+}
+
+#openModal:hover{
+font-weight: bold;
+background-color: #9B8EFF;
+}
+
+.programbaggrund{
+background-color: #ffffff82;
+margin: 40px 40px;
+}
+
+.kunstnerne, .aktiviteter{
+   display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+padding: 2rem;
+  justify-content: center;
+  justify-items: center;
+
+}
+
+dialog {
+border: none;
+border-radius: 12px;
+padding: 2rem;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+@media (min-width: 840px) {
+ .program{
+    text-align: center;
+     gap: 10px;   
+    }
+    .programbaggrund{
+margin: 40px 80px;
+}
+
+    .kunstnerne, .aktiviteter{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        max-width: 900px;
+        gap: 2rem;
+        justify-items: center;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+}
+</style>
+
+<script is:inline>
+  const modal = document.getElementById("programModal");
+  const openBtn = document.getElementById("openModal");
+  const closeBtn = document.getElementById("closeModal");
+
+  openBtn.addEventListener("click", () => {
+    modal.showModal();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.close();
+  });
+</script>
+

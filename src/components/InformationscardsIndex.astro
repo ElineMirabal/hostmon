@@ -9,16 +9,14 @@ import styles from "../styles/global.css";
 <h2>Bliv frivillig</h2>
 <p>Vi skal burge en masse hjælp til festivallen og vi har et drøm af et fællesskab. 
 Kunne du tænke dig at blive en del af det?</p>
-<a href="#">Læs mere</a>
-
+<a href="/kunstnereoversigt" class="cta">Læs mere</a>
 </div>
+
 
 <div class="genvejcard">
 <h2>Tidligere musik program</h2>
 <p>Du kan finde de tideligere musikprogrammer her.</p>
-<a href="#">Læs mere</a>
-
-</div>
+<a href="/kunstnereoversigt" class="cta">Læs mere</a>
 </div>
 
 <style>
@@ -42,6 +40,7 @@ Kunne du tænke dig at blive en del af det?</p>
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    border: white;
 }
 
 .genvejcard h2{
@@ -55,6 +54,25 @@ Kunne du tænke dig at blive en del af det?</p>
   grid-template-columns: repeat(2, 300px);
   gap: 20px;
   justify-content: center;
+}
+
+.cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #9B8EFF;
+    color: black;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background-color 0.3s;
+}
+
+.cta p{
+    color: black;
+}
+
+.cta:hover {
+    background-color: black;
+    color: white;
 }
 
 </style>

@@ -1,0 +1,93 @@
+---
+--- 
+
+<nav class="nav">
+  <div class="logo"><img src="hostmonlogo.png" alt=""></div>
+  
+   <div class="burger">≡</div>
+
+  <ul class="menu">
+    <li><a href="#">Billetter</a></li>
+    <li><a href="#">Program</a></li>
+    <li><a href="#">Om os</a></li>
+  </ul>
+</nav>
+
+
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.querySelector(".burger");
+    const menu = document.querySelector(".menu");
+
+    if (burger && menu) {
+      burger.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    }
+  });
+</script>
+
+<style>
+  .nav {
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    z-index: 10;
+  }
+
+  .logo {
+    font-weight: bold;
+  }
+
+  .burger {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /*MOBIL*/
+  .menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .menu li {
+    padding: 1rem;
+    list-style: none;
+  }
+
+  .menu a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  /*DESKTOP*/
+  @media (min-width: 840px) {
+    .menu {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      background: none;
+      width: auto;
+      gap: 2rem;
+    }
+
+    .burger {
+      display: block; 
+    }
+  }
+</style>

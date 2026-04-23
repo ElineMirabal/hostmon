@@ -1,51 +1,53 @@
 ---
 // Hent props
-const { href, text } = Astro.props;
+//const { href, text } = Astro.props;
 ---
 
 
-<a href={href} class="cta-laes-mere">
-  {text}
+<a href="" class="cta-laes-mere">
+  Læs mere
 </a>
-<a href={href} class="cta-billetterbilletter">
-  {text}
+<a href="/kunstnereoversigt#billetter" class="cta-billetterbilletter">
+  Billetter Billetter
 </a>
-<a href={href} class="cta-kob-billetter">
-  {text}
+<a href="/kunstnereoversigt#billetter" class="cta-kob-billetter">
+  Køb Billetter
 </a>
-<a href={href} class="cta-send">
-  {text}
+<a href="index.astro"class="cta-send">
+  Send
 </a>
-
+<button id="openModal">Her</button>
 
 <style>
-.cta{
+.cta {
 text-align: center;
 margin-top: 20px;
 margin-bottom: 20px;
 }
 
-.cta-laes-mere .cta-send {
+  #openModal, .cta-laes-mere, .cta-send {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 5px 30px;
   background-color: #0a0a0a;
   color: white;
   text-decoration: none;
   border: 2px solid white;
-  border-radius: 50%;
+  border-radius: 50px;
   font-weight: bold;
 }
 
-.cta-billetterbilletter .cta-kob-billetter{
+.cta-billetterbilletter, .cta-kob-billetter{
  color: #261321;
+padding: 15px 30px;
 font-size: 18px;
 font-weight: 600;
 border: white solid 2px;
 border-radius: 50%;
 }
 
-.cta-billetterbilletter .cta-kob-billetter:hover .cta-laes-mere .cta-send {
+#openModal, .cta-billetterbilletter, .cta-kob-billetter:hover, .cta-laes-mere, .cta-send {
   background-color: #9B8EFF;
+  font-weight: bold;
 }
 
 </style>
